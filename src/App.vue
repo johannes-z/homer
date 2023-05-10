@@ -102,7 +102,7 @@
           <!-- Vertical layout -->
           <div
             v-if="!filter && vlayout"
-            class="grid is-multiline layout-vertical"
+            class="grid is-desktop is-multiline layout-vertical"
             :style="`grid-template-columns: repeat(3, ${config.columns}fr)`"
           >
             <div
@@ -325,5 +325,11 @@ export default {
 .grid {
   display: grid;
   gap: 40px;
+}
+@media (pointer: none), (pointer: coarse) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
