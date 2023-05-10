@@ -34,11 +34,6 @@
         :links="config.links"
         @navbar-toggle="showMenu = !showMenu"
       >
-        <WebSearchInput
-          v-if="config.searchEngines"
-          :engines="config.searchEngines"
-        />
-
         <div style="flex: 1"></div>
 
         <DarkMode
@@ -157,7 +152,6 @@ import SearchInput from "./components/SearchInput.vue";
 import SettingToggle from "./components/SettingToggle.vue";
 import DarkMode from "./components/DarkMode.vue";
 import DynamicTheme from "./components/DynamicTheme.vue";
-import WebSearchInput from "./components/WebSearchInput.vue";
 
 import defaultConfig from "./assets/defaults.yml?raw";
 
@@ -172,7 +166,6 @@ export default {
     SettingToggle,
     DarkMode,
     DynamicTheme,
-    WebSearchInput,
   },
   data: function () {
     return {

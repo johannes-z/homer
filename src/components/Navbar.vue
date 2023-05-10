@@ -32,9 +32,8 @@
               ></i>
               {{ link.name }}
             </a>
-
-            <div style="flex-grow: 1"></div>
-
+          </div>
+          <div class="navbar-end">
             <slot></slot>
           </div>
         </div>
