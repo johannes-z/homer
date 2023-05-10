@@ -102,12 +102,15 @@
           <!-- Vertical layout -->
           <div
             v-if="!filter && vlayout"
-            class="columns is-multiline layout-vertical"
+            class="grid is-multiline layout-vertical"
+            :style="`grid-template-columns: repeat(3, ${config.columns}fr)`"
           >
             <div
-              :class="['column', `is-${12 / config.columns}`]"
               v-for="(group, groupIndex) in services"
               :key="groupIndex"
+              :style="`grid-row-end: span ${
+                group.rows ?? 1
+              }; grid-column-end: span ${group.columns ?? 1}`"
             >
               <h2 v-if="group.name" class="group-title">
                 <i v-if="group.icon" :class="['fa-fw', group.icon]"></i>
@@ -317,3 +320,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.grid {
+  display: grid;
+  gap: 40px;
+}
+</style>
