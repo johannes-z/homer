@@ -103,12 +103,11 @@
           <div
             v-if="!filter && vlayout"
             class="grid is-multiline layout-vertical"
-            :style="`grid-template-columns: repeat(${config.columns}, 1fr)`"
+            :style="`grid-template-columns: repeat(3, ${config.columns}fr)`"
           >
             <div
               v-for="(group, groupIndex) in services"
               :key="groupIndex"
-              class="section-wrapper"
               :style="`grid-row-end: span ${
                 group.rows ?? 1
               }; grid-column-end: span ${group.columns ?? 1}`"
