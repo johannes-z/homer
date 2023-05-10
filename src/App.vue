@@ -34,6 +34,13 @@
         :links="config.links"
         @navbar-toggle="showMenu = !showMenu"
       >
+        <WebSearchInput
+          v-if="config.searchEngines"
+          :engines="config.searchEngines"
+        />
+
+        <div style="flex: 1"></div>
+
         <DarkMode
           @updated="isDark = $event"
           :defaultValue="this.config.defaults.colorTheme"
@@ -60,16 +67,6 @@
 
     <section id="main-section" class="section">
       <div v-cloak class="container">
-        <WebSearchInput
-          v-if="config.searchEngines"
-          :engines="config.searchEngines"
-        />
-
-        <ConnectivityChecker
-          v-if="config.connectivityCheck"
-          @network-status-update="offline = $event"
-        />
-
         <GetStarted v-if="configurationNeeded" />
 
         <div v-if="!offline">

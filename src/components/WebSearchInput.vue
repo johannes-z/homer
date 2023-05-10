@@ -18,9 +18,8 @@
           ref="search"
           v-model="value"
           @input="search($event.target.value)"
-          placeholder="Search"
+          placeholder="Search the web"
         />
-        <button type="submit"><i class="fas fa-search"></i></button>
       </form>
       <transition name="fade">
         <div v-if="displayEngineSelect" class="engine-select">
@@ -159,61 +158,65 @@ export default {
 .web-search-container {
   display: flex;
   justify-content: center;
-  margin: 40px auto;
+  align-items: center;
+  margin: 0;
 }
 .web-search-bar {
+  display: flex;
+  align-items: center;
   position: relative;
 
   input {
     border: none;
-    background-color: var(--web-search-background);
+    background-color: var(--highlight-hover);
     // background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px 0 0 5px;
-    margin-left: 50px;
-    padding: 2px 12px 2px 5px;
+    border-radius: 15px 5px 5px 15px;
+    padding: 2px 12px 2px 40px;
     transition: all 100ms linear;
     color: var(--text);
-    height: 40px;
-    font-size: 34px;
+    height: 30px;
+    font-size: 16px;
     -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
     vertical-align: top;
+    width: 200px;
+
+    border: none;
+
+    &::placeholder {
+      color: var(--text-header);
+      opacity: 0.5;
+    }
+
+    &:focus,
+    &:focus-visible,
+    &:active {
+      border: none;
+      outline: none;
+    }
   }
 
-  button {
-    vertical-align: top;
-    border-radius: 0 5px 5px 0;
-    font-size: 20px;
-    border: none;
-    height: 40px;
-    width: 40px;
-    color: var(--text-header);
-    background-color: var(--highlight-primary);
-    -webkit-box-shadow: var(--box-shadow);
-    box-shadow: var(--box-shadow);
-    cursor: pointer;
-  }
   @media screen and (min-width: 375px) {
-    input {
-      width: 240px;
+    input:focus {
+      width: 180px;
     }
   }
   @media screen and (min-width: 768px) {
-    input {
-      width: 500px;
+    input:focus {
+      width: 240px;
     }
   }
   @media screen and (min-width: 1000px) {
-    input {
-      width: 600px;
+    input:focus {
+      width: 300px;
     }
   }
   .web-search-icon {
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 42px;
-    height: 42px;
+    width: 30px;
+    height: 30px;
   }
 
   .web-search-icon:hover {
